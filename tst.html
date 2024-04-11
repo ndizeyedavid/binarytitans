@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BinaryTitans</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <style>
+        /* Slideshow CSS */
+        .projects-section {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-cards {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card {
+            flex: 0 0 80%; /* Set the width of each card */
+            margin: 0 10px; /* Adjust the space between cards */
+        }
+    </style>
+</head>
+<body>
+    <!-- Your existing HTML -->
+
+    <!-- Projects -->
+    <section class="projects-section">
+        <h3 class="heading">Projects</h3>
+
+        <div class="project-cards">
+            <!-- Repeat this div for each project card -->
+            <div class="project-card">
+                <div class="project-desc">
+                    <h3>Project Name 1</h3>
+                    <p class="details">Project description goes here.</p>
+                    <button class="view">View Project</button>
+                </div>
+                <div class="project-img">
+                    <img src="img/project.png" alt="">
+                </div>
+            </div>
+
+            <!-- Repeat this div for each project card -->
+            <div class="project-card">
+                <div class="project-desc">
+                    <h3>Project Name 2</h3>
+                    <p class="details">Project description goes here.</p>
+                    <button class="view">View Project</button>
+                </div>
+                <div class="project-img">
+                    <img src="img/hero.png" alt="">
+                </div>
+            </div>
+
+            <!-- Repeat this div for each project card -->
+            <div class="project-card">
+                <div class="project-desc">
+                    <h3>Project Name 3</h3>
+                    <p class="details">Project description goes here.</p>
+                    <button class="view">View Project</button>
+                </div>
+                <div class="project-img">
+                    <img src="img/project.png" alt="">
+                </div>
+            </div>
+        </div>
+        <button class="next-btn">Next</button>
+        <button class="prev-btn">Previous</button>
+    </section>
+
+    <script>
+        // JavaScript for slideshow
+        const projectCards = document.querySelector('.project-cards');
+        const prevButton = document.querySelector('.prev-btn');
+        const nextButton = document.querySelector('.next-btn');
+        let position = 0;
+
+        function slide(direction) {
+            const cardWidth = document.querySelector('.project-card').offsetWidth;
+            if (direction === 'next') {
+                position -= cardWidth;
+            } else {
+                position += cardWidth;
+            }
+            projectCards.style.transform = `translateX(${position}px)`;
+        }
+
+        prevButton.addEventListener('click', () => slide('prev'));
+        nextButton.addEventListener('click', () => slide('next'));
+    </script>
+</body>
+</html>
